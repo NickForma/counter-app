@@ -10,6 +10,9 @@ class Counters extends Component {
           <button onClick={onReset} className="btn btn-primary btn-sm m-2">
             Reset
           </button>
+          <button onClick={onAdd} className="btn btn-success btn-sm m-2">
+            Add Counter
+          </button>
           {counters.map(counter => (
             <Counter
               key={counter.id}
@@ -18,9 +21,6 @@ class Counters extends Component {
               counter={counter}
             ></Counter>
           ))}
-        </div>
-        <div>
-          <button onClick={onAdd} className="btn btn-success btn-sm m-2">Add Counter</button>
         </div>
       </React.Fragment>
     );
