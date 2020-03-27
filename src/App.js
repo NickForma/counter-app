@@ -34,23 +34,33 @@ class App extends Component {
     this.setState({ counters });
   };
 
-  render( ) {
-  return (
-    <React.Fragment>
-      <NavBar totalCounters={
-        this.state.counters.filter(c => c.value > 0).length
-        }/>
-      <main className="container">
-        <Counters 
-        counters={this.state.counters}
-        onReset={this.handleReset}
-        onIncrement={this.handleIncrement}
-        onDelete={this.handleDelete}
-        />
-      </main>
-    </React.Fragment>
-  )
-};
-};
+  handleAdd = counters => {
+    const i = this.state.counters.length;
+    const j = i + 1;
+    const counter = [...this.state.counters];
+    console.log(counter, counter.length);
+    counter.push({ id: j, value: 0 });
+    console.log(counter);
+
+    this.setState({ counters: counter });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
+        <main className="container">
+          <Counters
+            counters={this.state.counters}
+            onReset={this.handleReset}
+            onIncrement={this.handleIncrement}
+            onDelete={this.handleDelete}
+            onAdd={this.handleAdd}
+          />
+        </main>
+      </React.Fragment>
+    );
+  }
+}
 
 export default App;
