@@ -22,6 +22,16 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <textarea
+          style={{
+            display: "inline-block",
+            verticalAlign: "middle",
+            margin: 2,
+            height: 40,
+            width: 200
+          }}
+          placeholder="Label"
+        ></textarea>
         <button
           onClick={() => this.props.onDelete(this.props.counter.id)}
           className="btn btn-danger btn-sm m-2"
